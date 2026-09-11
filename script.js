@@ -121,3 +121,18 @@ function handleAudio(file) {
   if (!file.type.startsWith('audio/')) { showToast('Please choose an audio file.'); return; }
   showToast(`${file.name} uploaded to the local audio library.`);
 }
+
+document.querySelector('#voiceChannelForm').addEventListener('submit', (event) => {
+  event.preventDefault();
+  const channelId = document.querySelector('#channelId').value.trim();
+  if (!/^\d{17,20}$/.test(channelId)) {
+    showToast('Enter a valid 17–20 digit voice channel ID.');
+    return;
+  }
+  localStorage.setItem('sentinelVoiceChannelId', channelId);
+  localStorage.setItem('sentinelVoiceTarget', document.querySelector('#targetBot').value);
+  showToast('Voice channel destination saved locally.');
+});
+
+const savedChannelId = localStorage.getItem('sentinelVoiceChannelId');
+if (savedChannelId) document.querySelector('#channelId').value = savedChannelId;
