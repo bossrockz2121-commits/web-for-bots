@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Private Discord bot token monitoring dashboard" />
+  <title>Sentinel — Discord bot monitor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark"><i></i><i></i><i></i></span><span>sentinel</span></div>
+      <div class="workspace-switcher"><span class="workspace-dot"></span><span>Personal workspace</span><span class="chevron">⌄</span></div>
+      <nav class="nav" aria-label="Main navigation">
+        <p class="nav-label">Workspace</p>
+        <a class="nav-item active" href="#overview"><span class="nav-icon">◈</span>Overview</a>
+        <a class="nav-item" href="#monitors"><span class="nav-icon">◉</span>Bot slots <b>8</b></a>
+        <a class="nav-item" href="#events"><span class="nav-icon">≋</span>Events</a>
+        <a class="nav-item" href="#settings"><span class="nav-icon">⚙</span>Settings</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="support-card"><span class="support-icon">?</span><div><strong>Need a hand?</strong><small>Read the setup guide</small></div><span>↗</span></div>
+        <div class="profile"><div class="avatar">DP</div><div><strong>Deepak P.</strong><small>Owner</small></div><span class="more">•••</span></div>
+      </div>
+    </aside>
+
+    <main class="main" id="overview">
+      <header class="topbar"><div><p class="eyebrow">Audio operations / Friday, September 11, 2026</p><h1>Bot soundboard <span>✦</span></h1></div><div class="top-actions"><button class="icon-button" aria-label="Notifications">♢<span class="notification-dot"></span></button><button class="refresh-button" id="refreshButton"><span>↻</span> Sync bots</button></div></header>
+
+      <section class="hero-strip"><div><span class="live-kicker"><i></i> Local control room</span><h2>Eight voices, one calm console.</h2><p>Route saved audio to your connected bot slots and keep playback status visible.</p></div><button class="hero-button" id="openModal"><span>＋</span> Add bot access</button></section>
+
+      <section class="summary-grid audio-summary" aria-label="Audio workspace summary">
+        <article class="metric-card accent"><div class="metric-top"><span class="metric-label">Bots connected</span><span class="metric-icon">◉</span></div><strong class="metric-value">0 <small>/ 8</small></strong><div class="metric-foot"><span class="status-pill live"><i></i> 8 slots open</span><span>Ready to connect</span></div></article>
+        <article class="metric-card"><div class="metric-top"><span class="metric-label">Saved audio</span><span class="metric-icon">♫</span></div><strong class="metric-value">24</strong><div class="metric-foot"><span class="trend">+4</span><span>this week</span></div></article>
+        <article class="metric-card"><div class="metric-top"><span class="metric-label">Now playing</span><span class="metric-icon">▶</span></div><strong class="metric-value">—</strong><div class="metric-foot"><span class="status-pill live"><i></i> Waiting</span><span>Select a bot first</span></div></article>
+        <article class="metric-card warn"><div class="metric-top"><span class="metric-label">Token access</span><span class="metric-icon">!</span></div><strong class="metric-value">0 <small>secured</small></strong><div class="metric-foot"><span class="status-pill warning"><i></i> Add your bots</span><span>Never displayed</span></div></article>
+      </section>
+
+      <section class="control-layout">
+        <div class="panel bot-panel" id="monitors"><div class="panel-header"><div><h2>Bot slots</h2><p>Assign a destination for your next audio cue.</p></div><button class="outline-button" id="openBotAccess"><span>＋</span> Add access</button></div><div class="bot-grid" id="botGrid">
+          <article class="bot-card empty-slot"><div class="empty-symbol">＋</div><strong>Open slot 01</strong><span class="bot-meta">Connect your first bot</span><button class="slot-button" data-open-access>Add bot access</button></article>
+          <article class="bot-card empty-slot"><div class="empty-symbol">＋</div><strong>Open slot 02</strong><span class="bot-meta">Connect your second bot</span><button class="slot-button" data-open-access>Add bot access</button></article>
+          <article class="bot-card empty-slot"><div class="empty-symbol">＋</div><strong>Open slot 03</strong><span class="bot-meta">Available for your bot</span><button class="slot-button" data-open-access>Add bot access</button></article>
+          <article class="bot-card empty-slot"><div class="empty-symbol">＋</div><strong>Open slot 04</strong><span class="bot-meta">Available for your bot</span><button class="slot-button" data-open-access>Add bot access</button></article>
+          <article class="bot-card empty-slot"><div class="empty-symbol">＋</div><strong>Open slot 05</strong><span class="bot-meta">Available for your bot</span><button class="slot-button" data-open-access>Add bot access</button></article>
+          <article class="bot-card empty-slot"><div class="empty-symbol">＋</div><strong>Open slot 06</strong><span class="bot-meta">Available for your bot</span><button class="slot-button" data-open-access>Add bot access</button></article>
+          <article class="bot-card empty-slot"><div class="empty-symbol">＋</div><strong>Open slot 07</strong><span class="bot-meta">Available for your bot</span><button class="slot-button" data-open-access>Add bot access</button></article>
+          <article class="bot-card empty-slot"><div class="empty-symbol">＋</div><strong>Open slot 08</strong><span class="bot-meta">Available for your bot</span><button class="slot-button" data-open-access>Add bot access</button></article>
+        </div></div>
+        <aside class="right-rail"><div class="panel player-panel"><div class="panel-header"><div><h2>Playback</h2><p>Send a saved cue to selected bots.</p></div><span class="player-status"><i></i> Live</span></div><div class="track-art">♫</div><div class="track-copy"><strong id="currentTrack">Late Night Drive</strong><span id="trackMeta">03:42 · Audio library</span></div><div class="progress"><span></span></div><div class="player-controls"><button aria-label="Previous track">↶</button><button class="main-play" id="mainPlay" aria-label="Play">▶</button><button aria-label="Next track">↷</button></div><div class="player-actions"><button id="stopAll">■ Stop all</button><button id="browseAudio">Browse library <span>→</span></button></div></div>
+        <div class="panel library-panel" id="library"><div class="panel-header"><div><h2>Saved audio</h2><p>24 files · 1.8 GB used</p></div><button class="text-button" id="uploadShortcut">Upload <span>↗</span></button></div><div class="audio-list"><button class="audio-item selected" data-track="Late Night Drive" data-duration="03:42"><span class="audio-icon">♫</span><span><strong>Late Night Drive</strong><small>MP3 · 5.1 MB</small></span><span class="audio-time">03:42</span><span class="audio-more">•••</span></button><button class="audio-item" data-track="Welcome Lobby" data-duration="01:18"><span class="audio-icon orange">♫</span><span><strong>Welcome Lobby</strong><small>WAV · 12.4 MB</small></span><span class="audio-time">01:18</span><span class="audio-more">•••</span></button><button class="audio-item" data-track="Quiet Hours" data-duration="07:06"><span class="audio-icon purple">♫</span><span><strong>Quiet Hours</strong><small>MP3 · 8.2 MB</small></span><span class="audio-time">07:06</span><span class="audio-more">•••</span></button></div><button class="view-all" id="viewAllAudio">Browse all audio <span>→</span></button></div></aside>
+      </section>
+      <section class="upload-zone" id="uploadZone"><div class="upload-mark">↑</div><div><strong>Drop audio here or browse your files</strong><p>MP3, WAV, OGG up to 50 MB · stored locally in this demo</p></div><button class="banner-action" id="uploadButton">Upload audio <span>→</span></button><input type="file" id="audioInput" accept="audio/*" hidden /></section>
+
+      <section class="content-grid legacy-dashboard">
+        <div class="panel monitor-panel" id="monitors">
+          <div class="panel-header"><div><h2>Bot monitors</h2><p>Keep an eye on every connection at a glance.</p></div><button class="outline-button" id="openModal"><span>＋</span> Add monitor</button></div>
+          <div class="monitor-list" id="monitorList">
+            <article class="monitor-row"><div class="bot-avatar coral">M</div><div class="bot-info"><strong>ModWatch</strong><span>moderation-bot <em>•</em> Production</span></div><span class="status-pill live"><i></i> Operational</span><div class="latency"><strong>184 ms</strong><span>Last check 2m ago</span></div><button class="row-menu" aria-label="More options">•••</button></article>
+            <article class="monitor-row"><div class="bot-avatar blue">A</div><div class="bot-info"><strong>Atlas Helper</strong><span>atlas-helper <em>•</em> Production</span></div><span class="status-pill live"><i></i> Operational</span><div class="latency"><strong>226 ms</strong><span>Last check 2m ago</span></div><button class="row-menu" aria-label="More options">•••</button></article>
+            <article class="monitor-row degraded"><div class="bot-avatar yellow">S</div><div class="bot-info"><strong>Study Rooms</strong><span>study-rooms <em>•</em> Staging</span></div><span class="status-pill warning"><i></i> Degraded</span><div class="latency"><strong>1.8 s</strong><span>Last check 2m ago</span></div><button class="row-menu" aria-label="More options">•••</button></article>
+          </div>
+          <button class="view-all">View all monitors <span>→</span></button>
+        </div>
+
+        <div class="panel activity-panel" id="events">
+          <div class="panel-header"><div><h2>Recent activity</h2><p>Latest signals from your workspace.</p></div><button class="text-button">View events <span>→</span></button></div>
+          <div class="activity-list">
+            <div class="activity-item"><span class="activity-mark green">✓</span><div><strong>ModWatch is back online</strong><span>Healthy response received</span></div><time>09:18</time></div>
+            <div class="activity-item"><span class="activity-mark amber">!</span><div><strong>Study Rooms latency increased</strong><span>Response time above 1 second</span></div><time>08:42</time></div>
+            <div class="activity-item"><span class="activity-mark blue">+</span><div><strong>Atlas Helper monitor added</strong><span>First check completed successfully</span></div><time>Yesterday</time></div>
+            <div class="activity-item"><span class="activity-mark gray">↻</span><div><strong>Weekly report generated</strong><span>August 31 – September 6</span></div><time>Mon</time></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="insight-banner"><div class="insight-spark">✦</div><div><strong>Everything looks mostly good.</strong><p>One monitor needs attention. Review its latency before it affects your server members.</p></div><button class="banner-action" id="reviewButton">Review issue <span>→</span></button></section>
+      <footer><span><i class="footer-dot"></i> All systems operational</span><span>Sentinel v1.4.2 <em>•</em> Privacy-first monitoring</span></footer>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="close-button" id="closeModal" aria-label="Close">×</button>
+      <div class="modal-icon">⌁</div><p class="eyebrow">Secure local access</p><h2 id="modalTitle">Connect a bot slot</h2><p class="modal-copy">Add a bot name and masked access token for this local prototype. Real self-bot automation is not enabled.</p>
+      <form id="monitorForm"><label for="botName">Bot name</label><input id="botName" name="botName" placeholder="e.g. Echo Seven" required /><label for="botToken">Bot access token</label><div class="token-field"><input id="botToken" name="botToken" type="password" placeholder="Paste a demo token" minlength="8" required /><button type="button" id="toggleToken" aria-label="Show token">Show</button></div><p class="security-note"><span>◉</span> Token is masked and kept in this browser only. Use an official bot account and secure backend for production.</p><button class="submit-button" type="submit">Connect slot <span>→</span></button></form>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
