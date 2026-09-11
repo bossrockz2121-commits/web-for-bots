@@ -1,0 +1,12 @@
+{
+  "name": "sentinel-audio-console",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sentinel bot audio control dashboard",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
